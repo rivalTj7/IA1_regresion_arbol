@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Datos - INE y Árboles de Decisión</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        header {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        header h1, header h2, header h3, header p {
+            color: white;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        h1, h2, h3 {
+            color: #343a40;
+        }
+        .card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .chart-container {
+            width: 100%;
+            height: 400px;
+            margin: 2rem 0;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .btn:hover {
+            background-color: #0069d9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Análisis de Datos - INE y Árboles de Decisión</h1>
+        <p>Visualización y análisis de datos de consumo de agua por actividades económicas</p>
+    </header>
+    <div class="container">
+        <div class="card">
+            <h2>Regresión con Datos del INE</h2>
+            <p>En esta sección, analizamos los datos de consumo de agua por actividades económicas utilizando modelos de regresión.</p>
+            <div class="chart-container" id="regresionChart">
+            </div>
+            <div id="regressionResults">
+                <h4>Resultados de la Regresión</h4>
+                <p>Los resultados se mostrarán aquí cuando se carguen los datos.</p>
+            </div>
+        </div>
+        <div class="card">
+            <h2>Árboles de Decisión</h2>
+            <p>Utilizando los datos de la tabla de restaurantes, seleccionamos 3 atributos que permiten clasificar con una precisión cercana al 100%.</p>
+            <h3>Datos del Restaurante</h3>
+            <div style="overflow-x:auto;">
+                <table id="restaurantTable">
+                    <thead>
+                        <tr>
+                            <th>Ejemplo</th>
+                            <th>Alt</th>
+                            <th>Bar</th>
+                            <th>Fri</th>
+                            <th>Hun</th>
+                            <th>Pat</th>
+                            <th>Price</th>
+                            <th>Rain</th>
+                            <th>Res</th>
+                            <th>Type</th>
+                            <th>Est</th>
+                            <th>WillWait</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <h3>Atributos Seleccionados</h3>
+            <p>Tras analizar los datos, los 3 atributos más significativos para la clasificación son:</p>
+            <ul id="selectedAttributes">
+            </ul>
+            <div class="chart-container" id="decisionTreeChart">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Desarrollado por Rivaldo Alexander Tojín | <span id="currentYear">2025</span></p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.5.0/math.min.js"></script>
+    <script src="js/regresion.js"></script>
+    <script src="js/arbol-decision.js"></script>
+    <script src="js/data-loader.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
